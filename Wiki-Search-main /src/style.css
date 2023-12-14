@@ -1,0 +1,276 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* CSS for loading bar */
+.loading-bar {
+  display: none;
+  width: 100%;
+  background-color: #ccc;
+}
+
+.bar {
+  height: 5px;
+  width: 0;
+  background-color: #007bff; /* Change the color as desired */
+  transition: width 0.3s ease-in-out;
+}
+
+.loader {
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #3498db;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 2s linear infinite;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  display: none; /* Initially hide the loader */
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Centering and styling result items */
+.result-item {
+  text-align: left;
+  max-width: 600px;
+  width: 100%;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Centering the results container */
+#results {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Styling links */
+.result-item a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.result-item a:hover {
+  color: #0056b3;
+}
+
+/* Styling the search container */
+.search-container {
+  display: flex;
+  width: 100vw;
+  height: 150px;
+  top: 0;
+  left: 0;
+  align-items: center;
+  padding-left: 50px;
+  position: fixed;
+  z-index: 9999;
+  background: #1d1d1d;
+  transition: 0.7s;
+}
+
+.search-container:hover {
+  background-color: rgba(11, 11, 11, 0.9);
+}
+
+/* Styling search form elements */
+.search-form {
+  display: flex;
+  margin-left: 30px;
+  border-radius: 5px;
+  background: #ffffff;
+}
+
+.search-form a,
+.search-form button {
+  border-radius: 1.2rem;
+  transition: 0.7s;
+}
+
+.search-form a:hover,
+.search-form button:hover {
+  border-radius: 1.5rem;
+  transition: 0.7s;
+  background-color: rgb(149, 170, 170);
+}
+
+.search-input {
+  border: none;
+  padding: 5px 10px;
+  width: 100%; /* Change to 100% to match the search container width */
+  height: 48px;
+  min-width: 400px;
+  outline: none;
+}
+
+.icon {
+  display: flex;
+  background: white;
+  border: none;
+  justify-content: center;
+  align-items: center;
+  height: 48px;
+  width: 40px;
+  color: #292929;
+}
+
+/* Styling the search results */
+.searchResults {
+  padding: 20px 0 50px;
+  margin-left: 140px;
+  width: 550px;
+  text-align: left;
+}
+
+.results {
+  width: 40vw;
+  margin-top: 180px;
+  margin-left: 140px;
+}
+
+.result {
+  width: 100%;
+  padding: 15px 40px 15px 20px;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  background: #1d1d1d;
+  color: white;
+  overflow-wrap: break-word;
+  box-shadow: 5px 5px 10px #cccccc, -5px -5px 11px #ffffff;
+  animation: reveal 1.5s;
+}
+
+.result:hover {
+  background: #5d5d5d;
+}
+
+.result-title {
+  color: #292929;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.3em;
+}
+
+.searchmatch {
+  background: rgba(255, 255, 0, 0.5);
+}
+
+.result-link {
+  text-decoration: underline;
+  color: #ffffff;
+}
+
+.name {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  margin: auto 18px 14px auto;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+/* Media query for smaller screens */
+@media only screen and (max-width: 768px) {
+  .search-container {
+    padding: 20px 0;
+    flex-direction: column;
+  }
+
+  .logo {
+    margin: 20px 0;
+  }
+
+  .search-form {
+    margin: 0;
+  }
+
+  .search-input {
+    width: 250px;
+    min-width: 0;
+  }
+
+  .results {
+    margin-left: 20px;
+    margin-top: 200px;
+    width: 75%;
+  }
+}
+
+@keyframes reveal {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: white;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #333333;
+  border-radius: 50px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Style for search suggestions */
+.suggestions {
+    position: absolute;
+    width: 332px; /* Set the width to 100% to match the search input width */
+    max-width: 600px; /* Set max-width to 100% to match the width of the search input container */
+    max-height: 600px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    background-color: white;
+    z-index: 1000;
+    display: none;
+}
+
+
+
+
+
+.suggestion-item {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.suggestion-item:hover {
+  background-color: #f0f0f0;
+}
+
